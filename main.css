@@ -16,7 +16,8 @@ body
 {
 	width: 100%;
 	height: 10%;
-	background-color: #FFFFFF;
+	background-color: #1B1A1A;
+	color: #FFFFFF;
 }
 
 .header .title
@@ -29,7 +30,13 @@ body
 {
 	width: 100%;
 	height: 5%;
-	background-color: #66FF99;
+	background-color: #7F7F7F;
+}
+
+.footer p
+{
+	padding: 5px;
+	margin: 0px;
 }
 
 .body
@@ -40,33 +47,50 @@ body
 
 }
 
+.body .row.title
+{
+	width: 100%;
+	height: 50px;
+	margin: 0px;
+	background-color: #F5F5F5;
+}
+
 .body .row
 {
 	width: 100%;
+	height: 600px;
 	margin: 0px;
 }
 
 .body .row .col-md-1
 {
-	border: 1px solid black;
-	
+	/* border: 1px solid black;*/
+	height: 100%;
+	background-color: #F5F5F5;
 }
 
 .body .row .col-md-4
 {
 	padding: 0px;
-	border-top: 1px solid #6C6C6C;
+	/*
+	border-top: 1px solid #B3AFAF;
+	*/
 	margin: 0px;
-	overflow: hidden;
+	overflow-y: auto;
+	height: 100%;
+	background-color: #F5F5F5;
 }
 
 .body .row .col-md-4 .search
 {
-	height: 25px;
+	padding: 5px;
 	width: 100%;
-	border-bottom: 1px solid #6C6C6C;
-	border-right: 1px solid #6C6C6C;
-	border-left: 1px solid #6C6C6C;
+	border: 1px solid #B3AFAF;
+	/*
+	border-bottom: 1px solid #B3AFAF;
+	border-right: 1px solid #B3AFAF;
+	border-left: 1px solid #B3AFAF;
+	*/
 	background-color: #FFFFFF;
 }
 
@@ -87,4 +111,35 @@ body
 .body .row .col-md-7
 {
 	background-color: #F5F5F5;
+	height: 100%;
+	overflow-y: auto;
 }
+
+.body .row .col-md-7 .row.options
+{
+	height: 15%;
+}
+
+.body .row .col-md-7 .row
+{
+	height: 85%;
+}
+
+
+::-webkit-scrollbar {
+-webkit-appearance: none;
+width: 12px;
+background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 12px;
+border: 4px solid rgba(255,255,255,0);
+background-clip: content-box;
+background-color: #bfbfbf;
+}
+
+::-webkit-scrollbar-corner {
+background-color: #e6e6e6;
+}
+
