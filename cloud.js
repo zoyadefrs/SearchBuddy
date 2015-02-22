@@ -18,6 +18,7 @@ function searchDivs()
 				    };
 				    searchBar.onclick = function()
 				    {
+					unclickHeaders();
 					var ad = document.getElementById("annotations");
 					if(ad != null)
 					{
@@ -51,6 +52,15 @@ function searchDivs()
 				    });
 }
 
+function unclickHeaders()
+{
+    var divs = document.getElementsByClassName("search");
+    for(var i = 0; i < divs.length; ++i)
+    {
+	divs[i].className = "search";
+    }
+}
+
 function displaySearch(info)
 {
     var parent = document.getElementById("searchContainer");
@@ -71,6 +81,8 @@ function displaySearch(info)
 	div.param = i;
 	div.onclick = function()
 	{
+	    unclickHeaders();
+	    this.className = "search clicked";
 	    var annotationDiv = document.getElementById("annotations");
 	    annotationDiv.innerHTML = "";
 	    var textarea = document.createElement("textarea");
