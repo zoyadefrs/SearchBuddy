@@ -3,6 +3,8 @@
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" href="main.css">
+		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<!-- <script src="main.js"></script> -->
 		<script src="cloud.js"></script>
 		
@@ -17,18 +19,26 @@
 			
 			
 			<div class="body">
-				<div class="row title text-center"> Click on your search to  see corresponding annotations</div>
+				<div class="row title text-center">
+				Click on your search to  see
+				corresponding annotations</div>
+				<div class="row title text-center">
+				<input type="text" id="searchbar"
+				       placeholder="Search through your searches">
+				</div>
 				<div class="row">
 					
 					<div class="col-md-1">
-						Toolbar
 					</div>
 					
 					<div id="searchContainer" class="col-md-4">
 					</div>
 					
 					<div class="col-md-7">
+						<!--
 						<div class="row options">Options</div>
+						-->
+						
 						<div class="row">
 						  Annotations
 						  <div id="annotations"></div>

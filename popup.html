@@ -8,24 +8,33 @@
   <head>
     <title>Getting Started Extension's Popup</title>
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+        font-size: 14px;
       }
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+        max-width: 400px;	
       }
+	  
+	  .search_stored
+	  { 
+		height:350px;
+		overflow-y: auto;
+	  }
+	  
       .searchItem
       {
-      width: 200px;
+		width: 200px;
       }
+	  
+	  button{width:49%; background-color: #4285F4; border: none; color: #FFFFFF;}
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.

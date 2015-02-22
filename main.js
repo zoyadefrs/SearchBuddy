@@ -1,5 +1,6 @@
 /* js main */
 window.onload = function(){
+
 document.getElementById("UI").onclick = openUI;
 
 function openUI(){
@@ -17,6 +18,9 @@ chrome.storage.sync.get("SearchBuddyInfo", function (obj)
 	    var t= document.createTextNode(info[i].search);
 	    var t2= document.createElement("div");
 	    t2.className = "searchItem";
+		t2.style.padding = "5px";
+		t2.style.borderTop = "1px solid #eee";
+		
 	    var tl = document.createElement("a");
 	    tl.param = info[i];
 	    tl.onclick = function()
@@ -25,20 +29,24 @@ chrome.storage.sync.get("SearchBuddyInfo", function (obj)
 		win.focus();
 		return false;
 	    };
-	    tl.appendChild(t);
-	    t2.appendChild(tl);
-	    var delBtn = document.createElement("span");
-	    delBtn.className = "glyphicon glyphicon-remove-sign";
+	    var delBtn = document.createElement("i");
+	    delBtn.className = "fa fa-times 2x";
 	    delBtn.param = info[i];
 	    delBtn.onclick = function()
 	    {
 		console.log("delete button!");
 		deleteBtn(this.param.search);
 	    };
+		delBtn.style.paddingRight = "5px";
+		delBtn.style.paddingLeft = "5px";
+		delBtn.style.color = "FFFFFF";
+		tl.appendChild(t);
 	    t2.appendChild(delBtn);
+	    t2.appendChild(tl);
 	    document.getElementById("search_stored").appendChild(t2);
 	}
     }
+ 
  });
 
 document.getElementById("refresh").onclick = refreshBtn;

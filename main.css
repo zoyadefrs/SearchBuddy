@@ -148,3 +148,18 @@ background-color: #bfbfbf;
 background-color: #e6e6e6;
 }
 
+#searchbar
+{
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+}
+
+#searchbar:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
