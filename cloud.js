@@ -28,6 +28,7 @@ function searchDivs()
 					    var textarea = document.createElement("textarea");
 					    var at = document.createTextNode(info[this.param].annotation);
 					    textarea.appendChild(at);
+						textarea.style.width = "100%";
 					    annotationDiv.appendChild(textarea);
 					    annotationDiv.appendChild(document.createElement("br"));
 					    var saveBtn = document.createElement("input");

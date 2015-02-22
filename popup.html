@@ -11,21 +11,30 @@
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+        font-size: 100%; height: 250px; max-height: 300px;
       }
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+        max-width: 400px;	
       }
+	  
+	  .search_stored
+	  { 
+		max-height:250px;
+		overflow-y: auto;
+	  }
+	  
       .searchItem
       {
-      width: 200px;
+		width: 200px;
       }
+	  
+	  button{width:49%; }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
