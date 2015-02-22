@@ -3,7 +3,7 @@ window.onload = function(){
 document.getElementById("UI").onclick = openUI;
 
 function openUI(){
-  window.open("www.google.ca");
+  window.open("ui.html");
 }
 
 chrome.storage.sync.get("SearchBuddyInfo", function (obj)
