@@ -17,7 +17,16 @@ chrome.storage.sync.get("SearchBuddyInfo", function (obj)
 	    var t= document.createTextNode(info[i].search);
 	    var t2= document.createElement("div");
 	    t2.className = "searchItem";
-	    t2.appendChild(t);
+	    var tl = document.createElement("a");
+	    tl.param = info[i];
+	    tl.onclick = function()
+	    {
+		var win = window.open("http://www.google.com/search?q=" + this.param.search, '_blank');
+		win.focus();
+		return false;
+	    };
+	    tl.appendChild(t);
+	    t2.appendChild(tl);
 	    var delBtn = document.createElement("span");
 	    delBtn.className = "glyphicon glyphicon-remove-sign";
 	    delBtn.param = info[i];
