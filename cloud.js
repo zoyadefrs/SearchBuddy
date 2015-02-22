@@ -71,6 +71,12 @@ function displaySearch(info)
 	div.param = i;
 	div.onclick = function()
 	{
+	    var divs = document.getElementsByClassName("search");
+	    for(var i = 0; i < divs.length; ++i)
+	    {
+		divs[i].className = "search";
+	    }
+	    this.className = "search clicked";
 	    var annotationDiv = document.getElementById("annotations");
 	    annotationDiv.innerHTML = "";
 	    var textarea = document.createElement("textarea");
