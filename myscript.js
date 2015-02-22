@@ -3,7 +3,17 @@ if (document.title.indexOf("Google") != -1)
 {
     //Creating Elements
     var btn = document.createElement("button")
-    var t = document.createTextNode("CLICK ME");
+    var t = document.createTextNode("SAVE");
+	btn.style.backgroundColor = "#4285F4";
+	btn.style.border = "2px solid #4285F4";
+	btn.style.borderRadius = "2px";
+	btn.style.color = "#FFFFFF";
+	btn.style.height = "30px";
+	btn.style.width = "60px";
+	btn.style.marginLeft = "3px";
+	btn.style.marginRight = "3px";
+	btn.style.fontWeight = "bold";
+	
     btn.appendChild(t);
     var searchDiv = document.getElementById("gbqfbw");
     if(searchDiv != null)
