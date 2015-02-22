@@ -13,7 +13,6 @@ function searchDivs()
 				    var searchBar = document.getElementById("searchbar");
 				    searchBar.onkeyup = function(e)
 				    {
-					console.log("key recorded!");
 					displaySearch(info);
 					string = string + String.fromCharCode(e.keyCode);
 				    };
@@ -22,8 +21,6 @@ function searchDivs()
 					var ad = document.getElementById("annotations");
 					if(ad != null)
 					{
-<<<<<<< HEAD
-					    console.log("clicked the div");
 					    var annotationDiv = document.getElementById("annotations");
 					    annotationDiv.innerHTML = "";
 					    var textarea = document.createElement("textarea");
@@ -39,11 +36,8 @@ function searchDivs()
 					    saveBtn.onclick = function()
 					    {
 						info[this.param].annotation = textarea.value;
-						console.log(textarea.value);
-						console.log("saving!");
 						chrome.storage.sync.set({'SearchBuddyInfo': info}, function()
 						{
-						    console.log("information saved in back end");
 						});
 					    };
 					    annotationDiv.appendChild(saveBtn);
@@ -52,14 +46,9 @@ function searchDivs()
 					a.appendChild(document.createTextNode(info[i].search));
 					div.appendChild(a);
 					parent.appendChild(div);
-				    }
-			
-=======
-					    ad.innerHTML = "";
-					}
-				    };
->>>>>>> b8b51935c545ad66a1d58ecdf228b482f1275408
-				});
+					ad.innerHTML = "";
+}
+				    });
 }
 
 function displaySearch(info)
@@ -67,13 +56,9 @@ function displaySearch(info)
     var parent = document.getElementById("searchContainer");
     var searchBar = document.getElementById("searchbar");
     var searchText = searchBar.value;
-    console.log("-----------------------------------");
-    console.log("searchtext: " + searchText);
     parent.innerHTML = "";
     for(i = 0 ; i < info.length ; i++)
     {
-	console.log("search: " + info[i].search);
-	console.log("INdex: " + searchText.indexOf(info[i].search));
 	if(searchText != "" && (info[i].search.indexOf(searchText) <= -1 && info[i].annotation.indexOf(searchText) <= -1))
 	{
 	    continue;
@@ -86,7 +71,6 @@ function displaySearch(info)
 	div.param = i;
 	div.onclick = function()
 	{
-	    console.log("clicked the div");
 	    var annotationDiv = document.getElementById("annotations");
 	    annotationDiv.innerHTML = "";
 	    var textarea = document.createElement("textarea");
@@ -101,18 +85,37 @@ function displaySearch(info)
 	    saveBtn.onclick = function()
 	    {
 		info[this.param].annotation = textarea.value;
-		console.log(textarea.value);
-		console.log("saving!");
 		chrome.storage.sync.set({'SearchBuddyInfo': info}, function()
 					{
-					    console.log("information saved in back end");
 					});
 	    };
 	    annotationDiv.appendChild(saveBtn);
 	};
 	a.className = "text";
 	a.appendChild(document.createTextNode(info[i].search));
+	var delSpan = document.createElement("span");
+	delSpan.className = "fa fa-times 2x";
+	delSpan.param = i;
+	delSpan.onclick = function(e)
+	{
+	    console.log("Deleting!");
+	    deleteBtn(this.param, info);
+	    e.preventDefault();
+	    e.stopPropagation();
+	    
+	    return false;
+	};
+	div.appendChild(delSpan);
 	div.appendChild(a);
 	parent.appendChild(div);
     }
+}
+
+function deleteBtn(item, info)
+{
+    info.splice(item, 1);
+    chrome.storage.sync.set({'SearchBuddyInfo': info}, function()
+			    {
+				displaySearch(info);
+			    });
 }
