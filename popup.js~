@@ -96,12 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     // Put the image URL in Google search.
     renderStatus('Performing Google Image search for ' + url);
-    chrome.storage.sync.get("SearchBuddyInfo", function (obj)
-			   {
-			       console.log(obj);
-			       //TODO: Populate table here with SearchBuddy information.
-			   });
-    /*getImageUrl(url, function(imageUrl, width, height) {
+
+    getImageUrl(url, function(imageUrl, width, height) {
 
       renderStatus('Search term: ' + url + '\n' +
           'Google image search result: ' + imageUrl);
@@ -117,6 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }, function(errorMessage) {
       renderStatus('Cannot display image. ' + errorMessage);
-    });*/
+    });
   });
 });
