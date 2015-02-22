@@ -1,28 +1,33 @@
 /* cloud.js */
 
-//window.onload = searchDivs;
-document.getElementById("btwiea7ryt3").onclick = searchDivs;
+window.onload = searchDivs;
 
 function searchDivs(){
-	var info;
-	document.getElementById("searchContainer").innerHTML = "function";
+	
+	var info;	
 	chrome.storage.sync.get("SearchBuddyInfo", function (obj)
 		{
 			info = obj.SearchBuddyInfo;
+
+			var parent = document.getElementById("searchContainer");
+			
+			for(i = 0 ; i < info.length ; i++){
+				
+				
+				var a = document.createElement("a");
+				a.id= i;
+				a.className = "link";
+				var div = document.createElement("div");
+				div.className = "search";
+				var p = document.createElement("p");
+				p.className = "text";
+				p.innerHTML = info[i].search;
+				
+				parent.appendChild(a);
+				a.appendChild(div);
+				div.appendChild(p);
+			}
+			
 		});
-	document.getElementById("searchContainer").innerHTML = "sync";	
-	var parent = document.getElementById("searchContainer");
-	
-	for(i = 0 ; i < info.lengh ; i++){
-		document.getElementById("searchContainer").innerHTML = "looping";
-		parent.appendChild(a);
-		var a = document.createElement(a);
-		a.id="search " + i;
-		var div = document.createElement(div);
-		a.appendChild(div);
-		var p = document.createElement(p);
-		div.appendChild(p);
-		p.innerHTML(info[i].search);
-	}
 	
 }

@@ -102,11 +102,16 @@ body
 
 .body .row .col-md-4 .search .text
 {
-	padding: 10px;
+	padding: 5px;
 	font-size: 15px;
 	color: #616161;
+	margin: 0px;
 }
 
+.body .row .col-md-4 .link:hover
+{
+	text-decoration: none;
+}
 
 .body .row .col-md-7
 {
