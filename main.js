@@ -9,15 +9,28 @@ function openUI(){
 chrome.storage.sync.get("SearchBuddyInfo", function (obj)
 {
     var info = obj.SearchBuddyInfo;
-    if(info != null && info.length !=0){
-    console.log("Recent Searches: " + info[0].search);
-    for(var i=0;i<info.length;i++){
-    var t= document.createTextNode(info[i].search);
-    var t2= document.createElement("br");
-    document.getElementById("search_stored").appendChild(t);
-    document.getElementById("search_stored").appendChild(t2);
-    }}
-  });
+    if(info != null && info.length !=0)
+    {
+	console.log("Recent Searches: " + info[0].search);
+	for(var i=0;i<info.length;i++)
+	{
+	    var t= document.createTextNode(info[i].search);
+	    var t2= document.createElement("div");
+	    t2.className = "searchItem";
+	    t2.appendChild(t);
+	    var delBtn = document.createElement("span");
+	    delBtn.className = "glyphicon glyphicon-remove-sign";
+	    delBtn.param = info[i];
+	    delBtn.onclick = function()
+	    {
+		console.log("delete button!");
+		deleteBtn(this.param.search);
+	    };
+	    t2.appendChild(delBtn);
+	    document.getElementById("search_stored").appendChild(t2);
+	}
+    }
+ });
 
 document.getElementById("refresh").onclick = refreshBtn;
 
@@ -26,29 +39,38 @@ function refreshBtn(){
     chrome.storage.sync.clear();
   
   var elt = document.getElementById("search_stored");
-  if (elt.hasChildNodes()) {
+  while (elt.hasChildNodes()) {
     elt.removeChild(elt.childNodes[0]);
   }
-  
-
 }
   
-  document.getElementById("deleteBTN").onclick = deleteBtn;
+  //document.getElementById("deleteBTN").onclick = deleteBtn;
 
-  function deleteBtn(){
+  function deleteBtn(item)
+  {
     var elt = document.getElementById("search_stored");
-    
     chrome.storage.sync.get("SearchBuddyInfo", function (obj)
-                            {
-      var info = obj.SearchBuddyInfo;
-                            if(info != null && info.length !=0){
+			    {
+				var info = obj.SearchBuddyInfo;
+				if(info != null && info.length !=0)
+				{
+				    for(i=0;i<info.length;i++)
+				    {
+					if(info[i].search == item)
+					{
+					    elt.removeChild(elt.children[i]);
+					    info.splice(i,1);
+					    break;
+					}
+				    }
                             
-                            for(i=0;i<info.length;i++){
-                            if(info[i].search == "cats"){
-                            elt.removeChild(elt.children[i*2]);
-                            }}
-
-                            
-                            }
-                            }); }
+				}
+				chrome.storage.sync.set({'SearchBuddyInfo': info}, function()
+							{
+							    // Notify that we saved.
+							    console.log("The value about to be saved is:: " + info[0].search);
+							    console.log('Settings saved');		
+							});
+                            });
+  }
 }

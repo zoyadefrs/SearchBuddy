@@ -28,7 +28,10 @@ if (document.title.indexOf("Google") != -1)
 									      {
 										  return e.search == searchText;
 									      }).length != 0;
-					    info.push({"search": searchText, "annotation": ""});
+					    if(!alreadyContains)
+					    {
+						info.push({"search": searchText, "annotation": ""});
+					    }
 					}
 					else
 					{
