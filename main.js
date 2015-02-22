@@ -1,5 +1,6 @@
 /* js main */
 window.onload = function(){
+
 document.getElementById("UI").onclick = openUI;
 
 function openUI(){
@@ -39,6 +40,7 @@ chrome.storage.sync.get("SearchBuddyInfo", function (obj)
 	    document.getElementById("search_stored").appendChild(t2);
 	}
     }
+ 
  });
 
 document.getElementById("refresh").onclick = refreshBtn;
