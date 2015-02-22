@@ -28,13 +28,22 @@ if (document.title.indexOf("Google") != -1)
 									      {
 										  return e.search == searchText;
 									      }).length != 0;
-					    info.push({"search": searchText, "annotation": ""});
+					    if(!alreadyContains)
+					    {
+						info.push({"search": searchText, "annotation": ""});
+					    }
 					}
 					else
 					{
 					    info = [{"search": searchText, "annotation": ""}];
 					}
 					console.log("About to save!");
+					//obj.SearchBuddyInfo = info;
+					chrome.storage.sync.set({'SearchBuddyInfo': info}, function() {
+					    // Notify that we saved.
+                        console.log("The value about to be saved is:: " + info[0].search);
+					    console.log('Settings saved');		
+					});
 					var tes = document.getElementById("errorSpanSB");
 					if(tes != null)
 					{
@@ -65,4 +74,7 @@ if (document.title.indexOf("Google") != -1)
 	};
 	searchDiv.appendChild(btn);
    }
+    
+    
 }
+

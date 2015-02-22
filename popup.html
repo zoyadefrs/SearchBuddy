@@ -20,8 +20,12 @@
         overflow: hidden;
         max-width: 400px;
       }
+      .searchItem
+      {
+      width: 400px;
+      }
     </style>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -35,10 +39,6 @@
   </head>
   
   <body>
-
-	<div class="head">
-		<button id="UI"> View All </button>
-	</div>
 	
 	<div id="wrapper">
 	<div id="titletext">
@@ -52,9 +52,15 @@
 
     <div id="status"></div>
     <img id="image-result" hidden>
+        
+    <div id="search_stored"> </div>
+    
 
+    <button id="UI"> View All </button>
 
-	<script src="main.js"></script>    
+    <button id="refresh"> Refresh </button>
+
+    <script src="main.js"></script>
   </body>
 </html>
 

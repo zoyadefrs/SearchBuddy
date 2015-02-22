@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head><title>My test Options </test></head>
+    <head>
+        <link rel="stylesheet" href="options.css">
+        <div id="titlepage">
+            <img src="search_logo.png">
+            </div>
+        <title>SearchBuddy Options</title>
+    </head>
     <body>
-        
-        Favorite Color:
-        <select id="color">
-            <option value="red">red</option>
-            <option value="green">green</option>
-            <option value="blue">blue</option>
-            <option value="yellow">yellow</option>
-        </select>
-    
+        <div id="nav">
+        <h2 i18n="generaloptions"> General Options </h2>
+        </div>
+        <p>
+        <input type="checkbox" class="feature" id="sort_my_searches_alpha">
+        <label for="sort_my_searches_alpha" i18n="sortmysearchAlpha"> I would like my searches sorted alphabetically. </label>
+        </p>
     <label>
         <input type="checkbox" id="like">
             I like colors.
     </label>
     
+<div id="status"></div>
+<button id="save">Save</button>
 
-
+<script src="option.js"></script>
 
 
 </body>

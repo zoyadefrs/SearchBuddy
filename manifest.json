@@ -4,7 +4,9 @@
   "name": "SearchBuddy",
   "description": "This extension saves and annotates your Google research.",
   "version": "1.0",
-  "icons": { "128": "icon.png" },
+
+  "options_page": "options.html",
+"icons":{"128": "search_bud.png"},
   "browser_action": {
 	"default_title": "SearchBuddy",
     "default_icon": "icon.png",
