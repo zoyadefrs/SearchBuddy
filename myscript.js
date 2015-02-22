@@ -33,10 +33,14 @@ if (document.title.indexOf("Google") != -1)
 					//obj.SearchBuddyInfo = info;
 					chrome.storage.sync.set({'SearchBuddyInfo': info}, function() {
 					    // Notify that we saved.
+                        console.log("The value about to be saved is:: " + info[0].search);
 					    console.log('Settings saved');		
 					});
 				    });
 	};
 	searchDiv.appendChild(btn);
    }
+    
+    
 }
+
